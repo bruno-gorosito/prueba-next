@@ -12,3 +12,5 @@ export async function GET(req, res) {
  
   return NextResponse.json({tasks: JSON.parse(JSON.stringify(data))});
 }
+
+
