@@ -1,6 +1,11 @@
+import Card from "../components/Card";
+
 const Page = () => {
     return(
-        <h1>Desde page</h1>
+        <>
+            <h2>Hola</h2>
+            <Card />
+        </>
     )
 }
 
