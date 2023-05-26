@@ -40,7 +40,7 @@ export default function Home() {
               />
             ))
           )
-          : <p>No hay elementos</p>
+          : <p className='mt-4'>No hay elementos</p>
         }
       </div>
     </>
