@@ -3,6 +3,7 @@
 import axios from 'axios'
 import Card from './components/Card'
 import { useEffect, useState } from 'react'
+import Link from 'next/link';
 
 
 
@@ -26,6 +27,10 @@ export default function Home() {
   return (
     <>
       <div className="max-w-5xl mx-auto flex flex-col text-center mt-8">
+      <Link
+            href="/new-task"
+            className="w-auto bg-cyan-500 py-2 px-4 rounded text-white"
+            >Añadir nueva tarea</Link>
         {todos.length !== 0
           ? (
             todos.map(task => (
