@@ -37,14 +37,15 @@ const Page = () => {
     return(
         <>
         <div className="max-w-5xl mx-auto mt-8 lg:px-2 relative">
-            <Link
-            href="/"
-            className="w-auto bg-cyan-500 py-2 px-4 rounded text-white"
-            >Volver</Link>
+            
             <form
                 className="flex flex-row flex-wrap"
                 onSubmit={sendNewTask}
             >
+                <Link
+                href="/"
+                className="w-auto bg-cyan-500 py-2 px-4 rounded text-white"
+                >Volver</Link>
                 <div className="my-4 px-2 w-full md:w-1/2">
                     <label className="block mb-2">
                         Tarea: 
@@ -73,7 +74,7 @@ const Page = () => {
                 </div>
                 <button
                     type="submit"
-                    className="border rounded border-cyan-900 text-white font-bold py-2 px-4 w-full bg-cyan-500 ease-linear transition-all hover:bg-cyan-800"
+                    className="border rounded border-cyan-900 text-white font-bold py-2 px-4 mx-2 w-full bg-cyan-500 ease-linear transition-all hover:bg-cyan-800"
                 >Añadir tarea</button>
             </form>
         </div>
