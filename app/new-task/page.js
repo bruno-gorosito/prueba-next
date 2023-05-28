@@ -36,16 +36,16 @@ const Page = () => {
 
     return(
         <>
-        <div className="max-w-5xl mx-auto mt-8 lg:px-2 relative">
-            
+        <div className="max-w-5xl mt-8 lg:px-2 relative mx-auto">
+            <Link
+                href="/"
+                className="w-full ml-2 bg-cyan-500 py-2 px-4 rounded text-white"
+                >Volver</Link>
             <form
                 className="flex flex-row flex-wrap"
                 onSubmit={sendNewTask}
             >
-                <Link
-                href="/"
-                className="w-auto bg-cyan-500 py-2 px-4 rounded text-white"
-                >Volver</Link>
+                
                 <div className="my-4 px-2 w-full md:w-1/2">
                     <label className="block mb-2">
                         Tarea: 

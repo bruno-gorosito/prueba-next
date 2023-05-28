@@ -15,14 +15,13 @@ export default function Home() {
   const loadTask = async() => {
     const res = await axios.get('/api/todos');
     const tasks = res;
-    console.log(res.data.tasks)
     setTodos(res.data.tasks);
   }
 
 
   useEffect(() => {
     loadTask();
-  }, [])
+  }, [todos])
 
   return (
     <>

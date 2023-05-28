@@ -1,8 +1,6 @@
 import clientPromise from "@/lib/mongodb";
-import { requestToBodyStream } from "next/dist/server/body-streams";
+import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
-
-
 
 export async function GET(req, res){
     const mongoClient = await clientPromise;
@@ -27,4 +25,41 @@ export async function POST(req, res) {
         .collection('tareas')
         .insertOne(task)
     return NextResponse.json({task})
+}
+
+export async function PUT(req, res) {
+    try {
+        const mongoClient = await clientPromise;
+        let {id, task} = await req.json();
+        id = typeof id === 'string' ? new ObjectId(id) : id;
+        const collection = await mongoClient
+            .db()
+            .collection('tareas')
+            .updateOne({_id: id}, {$set : task})
+        return NextResponse.json({msg: 'success'})
+    } catch (error) {
+        NextResponse.json(error)
+    }
+}
+
+export async function DELETE(req, res) {
+    try {
+        const mongoClient = await clientPromise;
+        
+        // const body = Readable.toString(req.body) ;
+        const {searchParams} = new URL(req.url);
+        let id = searchParams.get('id')
+        id = typeof id === 'string' ? new ObjectId(id) : id;
+        const collection = await mongoClient
+            .db()
+            .collection('tareas')
+        let existe = await collection.findOne({_id: id});
+        if (existe === null) return NextResponse.json({msg: 'Tarea no existente'})
+        await collection.deleteOne({_id: id})
+        return NextResponse.json({msg: 'Success'})
+            
+        
+    } catch (error) {
+        console.log(error)
+    }
 }
