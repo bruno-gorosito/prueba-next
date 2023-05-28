@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto flex flex-col px-4 text-center mt-8 ">
+      <div className="max-w-5xl mx-auto flex flex-col px-4 text-center mt-8 mb-4 ">
       <Link
             href="/new-task"
             className="w-auto bg-cyan-500 py-2 px-4 rounded text-white"
